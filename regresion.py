@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -23,7 +24,7 @@ biases_L2 = tf.Variable(tf.zeros([1, 1]))
 Wx_plus_b_L2 = tf.matmul(L1, Weights_L2) + biases_L2
 prediction = tf.nn.tanh(Wx_plus_b_L2)
 
-# 二次代价函数
+# 代价函数
 loss = tf.reduce_mean(tf.square(y - prediction))
 
 train_step = tf.train.GradientDescentOptimizer(0.1).minimize(loss)
